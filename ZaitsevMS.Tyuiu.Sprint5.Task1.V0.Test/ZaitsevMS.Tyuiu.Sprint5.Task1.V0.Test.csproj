@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2F120525-194B-4CB7-A05A-3FB5F76ABC7D}</ProjectGuid>
+    <ProjectGuid>{DC581681-0050-401E-B999-4A789BCFBEA5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ZaitsevMS.Tyuiu.Sprint5.Task1.V0.Test</RootNamespace>
@@ -49,11 +49,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="DataServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZaitsevMS.Tyuiu.Sprint5.Task1.V0.Lib\ZaitsevMS.Tyuiu.Sprint5.Task1.V0.Lib.csproj">
+      <Project>{5af93158-8c97-4897-a5a8-6d67bc7a4db4}</Project>
+      <Name>ZaitsevMS.Tyuiu.Sprint5.Task1.V0.Lib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

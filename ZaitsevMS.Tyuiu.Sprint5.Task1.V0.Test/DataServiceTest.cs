@@ -9,15 +9,15 @@ namespace ZaitsevMS.Tyuiu.Sprint5.Task1.V0.Test
     public class DataServiceTest
     {
         [TestMethod]
-        public void CheckedExistsFiles()
+        public void CheckedExistsFile()
         {
-            string path = @"C:\Users\macjim\source\repos\Tyuiu.ZaitsevMS.Sprint5\ZaitsevMS.Tyuiu.Sprint5.Task1\bin\Debug\OutputFileTask1.txt";
+            string path = @"C:\Users\macjim\source\repos\Tyuiu.ZaitsevMS.Sprint5\ZaitsevMS.Tyuiu.Sprint5.Task1.V0\bin\Debug\OutputFileTask1.txt";
 
             FileInfo fI = new FileInfo(path);
-            bool fileEx = fI.Exists;
+            bool fEx = fI.Exists;
 
             bool wait = true;
-            Assert.AreEqual(wait, fileEx);
+            Assert.AreEqual(wait, fEx);
         }
     }
 }
