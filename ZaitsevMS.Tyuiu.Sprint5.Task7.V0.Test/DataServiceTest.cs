@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using ZaitsevMS.Tyuiu.Sprint5.Task7.V2.Lib;
 
-namespace ZaitsevMS.Tyuiu.Sprint5.Task7.V2.Test
+namespace ZaitsevMS.Tyuiu.Sprint5.Task7.V2.Test 
 {
     [TestClass]
     public class DataServiceTest
