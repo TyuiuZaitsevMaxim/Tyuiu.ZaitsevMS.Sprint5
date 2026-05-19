@@ -10,7 +10,7 @@ namespace ZaitsevMS.Tyuiu.Sprint5.Task4.V6
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
             DataService ds = new DataService();
 

@@ -6,7 +6,7 @@ using ZaitsevMS.Tyuiu.Sprint5.Task4.V6.Lib;
 namespace ZaitsevMS.Tyuiu.Sprint5.Task4.V6.Test
 {
     [TestClass]
-    public class DataServiceTest
+    public class DataServiceTest 
     {
         [TestMethod]
         public void CheckedCalculateFromFile()
