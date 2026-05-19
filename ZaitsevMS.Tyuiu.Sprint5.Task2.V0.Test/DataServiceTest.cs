@@ -6,7 +6,7 @@ using ZaitsevMS.Tyuiu.Sprint5.Task2.V5.Lib;
 namespace ZaitsevMS.Tyuiu.Sprint5.Task2.V5.Test
 {
     [TestClass]
-    public class DataServiceTest
+    public class DataServiceTest 
     {
         [TestMethod]
         public void CheckedExistsFile()
