@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Tyuiu.ZaitsevMS.Sprint5.Task0.V0.Test
 {
-    [TestClass]
+    [TestClass] 
     public class DataServiceTest
     {
         [TestMethod]
