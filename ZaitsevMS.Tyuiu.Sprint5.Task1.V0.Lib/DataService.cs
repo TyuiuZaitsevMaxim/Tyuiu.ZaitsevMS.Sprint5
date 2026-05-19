@@ -6,28 +6,34 @@ using System.Text;
 using System.Threading.Tasks;
 using tyuiu.cources.programming.interfaces.Sprint5;
 
-namespace ZaitsevMS.Tyuiu.Sprint5.Task1.V0.Lib
+namespace ZaitsevMS.Tyuiu.Sprint5.Task1.V4.Lib
 {
-    public class DataService : ISprint5Task1V0
+    public class DataService : ISprint5Task1V4
     {
         public string SaveToFileTextData(int startValue, int stopValue)
         {
-            string path = $@"{Directory.GetCurrentDirectory()}\OutputFileTask1.txt";
+            string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask1.txt");
 
-            FileInfo fI = new FileInfo(path);
-            bool fEx = fI.Exists;
-
-            if (fEx)
+            if (File.Exists(path))
             {
                 File.Delete(path);
             }
 
-            double y;
-            string strY;
             for (int x = startValue; x <= stopValue; x++)
             {
-                y = Math.Round(Math.Sin(x), 2);
-                strY = Convert.ToString(y);
+                double y;
+                double denom = x + 1;
+
+                if (denom == 0)
+                {
+                    y = 0.0;
+                }
+                else
+                {
+                    y = Math.Cos(x) / denom - Math.Cos(x) * 1.3 + 3 * x;
+                }
+
+                string strY = Math.Round(y, 2).ToString();
 
                 if (x != stopValue)
                 {
@@ -38,6 +44,7 @@ namespace ZaitsevMS.Tyuiu.Sprint5.Task1.V0.Lib
                     File.AppendAllText(path, strY);
                 }
             }
+
             return path;
         }
     }

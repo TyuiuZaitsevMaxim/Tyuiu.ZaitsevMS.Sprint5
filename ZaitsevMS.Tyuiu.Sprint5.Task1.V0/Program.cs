@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using ZaitsevMS.Tyuiu.Sprint5.Task1.V0.Lib;
+using ZaitsevMS.Tyuiu.Sprint5.Task1.V4.Lib;
 
-namespace ZaitsevMS.Tyuiu.Sprint5.Task1.V0
+namespace ZaitsevMS.Tyuiu.Sprint5.Task1.V4
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            int stopValue = 5;
             int startValue = -5;
+            int stopValue = 5;
 
             DataService ds = new DataService();
 
@@ -23,8 +23,14 @@ namespace ZaitsevMS.Tyuiu.Sprint5.Task1.V0
             Console.WriteLine("* Спринт #5                                                               *");
             Console.WriteLine("* Тема: Класс File. Запись набора данных в текстовый файл                 *");
             Console.WriteLine("* Задание #1                                                              *");
-            Console.WriteLine("* Вариант #0                                                              *");
+            Console.WriteLine("* Вариант #4                                                              *");
             Console.WriteLine("* Выполнил: Зайцев Максим Сергеевич | ИБКСб-25-1                          *");
+            Console.WriteLine("***************************************************************************");
+            Console.WriteLine("* УСЛОВИЕ:                                                                *");
+            Console.WriteLine("* Табулирование F(x)=cos(x)/(x+1) - cos(x)*1.3+3x на [-5;5] с шагом 1.  *");
+            Console.WriteLine("* При делении на ноль вернуть 0. Результат сохранить в файл и вывести     *");
+            Console.WriteLine("* на консоль.                                                             *");
+            Console.WriteLine("*                                                                         *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
@@ -33,13 +39,27 @@ namespace ZaitsevMS.Tyuiu.Sprint5.Task1.V0
             Console.WriteLine("stopValue = " + stopValue);
 
             Console.WriteLine("***************************************************************************");
-            Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
+            Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
 
-            string res = ds.SaveToFileTextData(startValue, stopValue);
+            string path = ds.SaveToFileTextData(startValue, stopValue);
 
-            Console.WriteLine("Файл: " + res);
+            Console.WriteLine("Файл: " + path);
             Console.WriteLine("Создан!");
+            Console.WriteLine();
+
+            Console.WriteLine("+----------+----------+");
+            Console.WriteLine("|    X     |    f(x)  |");
+            Console.WriteLine("+----------+----------+");
+
+            string[] lines = File.ReadAllLines(path);
+            int x = startValue;
+            foreach (string line in lines)
+            {
+                Console.WriteLine("| {0,5:d}    |  {1,6}  |", x, line);
+                x++;
+            }
+            Console.WriteLine("+----------+----------+");
             Console.ReadLine();
         }
     }

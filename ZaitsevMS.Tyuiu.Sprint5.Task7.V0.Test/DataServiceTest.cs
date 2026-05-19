@@ -1,20 +1,41 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
-using ZaitsevMS.Tyuiu.Sprint5.Task7.V0.Lib;
+using System.Text;
+using ZaitsevMS.Tyuiu.Sprint5.Task7.V2.Lib;
 
-namespace ZaitsevMS.Tyuiu.Sprint5.Task7.V0.Test
+namespace ZaitsevMS.Tyuiu.Sprint5.Task7.V2.Test
 {
     [TestClass]
     public class DataServiceTest
     {
         [TestMethod]
+        public void ValidCalc()
+        {
+            DataService ds = new DataService();
+
+            string pathIn = Path.Combine(Path.GetTempPath(), "InPutDataFileTask7V2.txt");
+            File.WriteAllText(pathIn, "123 Привет, это тестовая строка 456.", Encoding.UTF8);
+
+            string pathOut = ds.LoadDataAndSave(pathIn);
+
+            string result = File.ReadAllText(pathOut).Trim();
+            string wait = "### Привет, это тестовая строка ###.";
+
+            Assert.AreEqual(wait, result);
+        }
+
+        [TestMethod]
         public void CheckedExistsFile()
         {
-            string path = @"C:\Users\macjim\source\repos\Tyuiu.ZaitsevMS.Sprint5\ZaitsevMS.Tyuiu.Sprint5.Task7.V0\bin\Debug\OutputFileTask7.txt";
+            DataService ds = new DataService();
 
-            FileInfo fI = new FileInfo(path);
-            bool fEx = fI.Exists;
+            string pathIn = Path.Combine(Path.GetTempPath(), "InPutDataFileTask7V2.txt");
+            File.WriteAllText(pathIn, "123 Привет, это тестовая строка 456.", Encoding.UTF8);
+
+            string pathOut = ds.LoadDataAndSave(pathIn);
+
+            bool fEx = File.Exists(pathOut);
             bool wait = true;
             Assert.AreEqual(wait, fEx);
         }

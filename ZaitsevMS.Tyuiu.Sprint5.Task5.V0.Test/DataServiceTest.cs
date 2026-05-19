@@ -1,22 +1,25 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
-using ZaitsevMS.Tyuiu.Sprint5.Task5.V0.Lib;
+using ZaitsevMS.Tyuiu.Sprint5.Task5.V17.Lib;
 
-namespace ZaitsevMS.Tyuiu.Sprint5.Task5.V0.Test
+namespace ZaitsevMS.Tyuiu.Sprint5.Task5.V17.Test
 {
     [TestClass]
     public class DataServiceTest
     {
         [TestMethod]
-        public void CheckedExistsFile()
+        public void CheckedSumPrimes()
         {
-            string path = @"C:\Users\macjim\source\repos\Tyuiu.ZaitsevMS.Sprint5\ZaitsevMS.Tyuiu.Sprint5.Task5.V0\bin\Debug\InputFileTask5.txt";
+            DataService ds = new DataService();
 
-            FileInfo fI = new FileInfo(path);
-            bool fEx = fI.Exists;
-            bool wait = true;
-            Assert.AreEqual(wait, fEx);
+            string path = Path.Combine(Path.GetTempPath(), "InPutDataFileTask5V17.txt");
+            File.WriteAllText(path, "-9 13 -0.71 19.24 2.73 -0.5 -8 12.8 -3.01 11.69 -7 -1 11.8 7 -4 5.33 18.96 12.16 -5 -8.15");
+
+            double res = ds.LoadFromDataFile(path);
+
+            double wait = 20;
+            Assert.AreEqual(wait, res);
         }
     }
 }

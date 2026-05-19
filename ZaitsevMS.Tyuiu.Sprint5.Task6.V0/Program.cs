@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using ZaitsevMS.Tyuiu.Sprint5.Task6.V0.Lib;
+using ZaitsevMS.Tyuiu.Sprint5.Task6.V1.Lib;
 
-namespace ZaitsevMS.Tyuiu.Sprint5.Task6.V0
+namespace ZaitsevMS.Tyuiu.Sprint5.Task6.V1
 {
     internal class Program
     {
@@ -20,21 +20,26 @@ namespace ZaitsevMS.Tyuiu.Sprint5.Task6.V0
             Console.WriteLine("* Спринт #5                                                               *");
             Console.WriteLine("* Тема: Обработка текстовых файлов                                        *");
             Console.WriteLine("* Задание #6                                                              *");
-            Console.WriteLine("* Вариант #0                                                              *");
+            Console.WriteLine("* Вариант #1                                                              *");
             Console.WriteLine("* Выполнил: Зайцев Максим Сергеевич | ИБКСб-25-1                          *");
+            Console.WriteLine("***************************************************************************");
+            Console.WriteLine("* УСЛОВИЕ:                                                                *");
+            Console.WriteLine("* Дан файл с набором символьных данных. Найти количество цифр в           *");
+            Console.WriteLine("* заданной строке.                                                        *");
+            Console.WriteLine("*                                                                         *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
 
-            string path = $@"{Directory.GetCurrentDirectory()}\InputFileTask6.txt";
+            string path = Path.Combine(Path.GetTempPath(), "InPutDataFileTask6V1.txt");
             Console.WriteLine("Данные находятся в файле: " + path);
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
 
-            double res = ds.LoadFromDataFile(path);
-            Console.WriteLine(res);
+            int res = ds.LoadFromDataFile(path);
+            Console.WriteLine("Количество цифр = " + res);
             Console.ReadLine();
         }
     }

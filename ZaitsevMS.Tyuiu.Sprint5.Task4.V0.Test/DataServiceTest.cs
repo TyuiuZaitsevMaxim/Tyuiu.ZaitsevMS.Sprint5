@@ -1,22 +1,25 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
-using ZaitsevMS.Tyuiu.Sprint5.Task4.V0.Lib;
+using ZaitsevMS.Tyuiu.Sprint5.Task4.V6.Lib;
 
-namespace ZaitsevMS.Tyuiu.Sprint5.Task4.V0.Test
+namespace ZaitsevMS.Tyuiu.Sprint5.Task4.V6.Test
 {
     [TestClass]
     public class DataServiceTest
     {
         [TestMethod]
-        public void CheckedExistsFile()
+        public void CheckedCalculateFromFile()
         {
-            string path = @"C:\Users\macjim\source\repos\Tyuiu.ZaitsevMS.Sprint5\ZaitsevMS.Tyuiu.Sprint5.Task4.V0\bin\Debug\InputFileTask4.txt";
+            DataService ds = new DataService();
 
-            FileInfo fI = new FileInfo(path);
-            bool fEx = fI.Exists;
-            bool wait = true;
-            Assert.AreEqual(wait, fEx);
+            string path = Path.Combine(Path.GetTempPath(), "InPutDataFileTask4V6.txt");
+            File.WriteAllText(path, "2.24");
+
+            double res = ds.LoadFromDataFile(path);
+
+            double wait = 9.427;
+            Assert.AreEqual(wait, res);
         }
     }
 }

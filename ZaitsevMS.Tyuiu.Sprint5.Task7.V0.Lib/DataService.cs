@@ -6,38 +6,37 @@ using System.Threading.Tasks;
 using System.IO;
 using tyuiu.cources.programming.interfaces.Sprint5;
 
-namespace ZaitsevMS.Tyuiu.Sprint5.Task7.V0.Lib
+namespace ZaitsevMS.Tyuiu.Sprint5.Task7.V2.Lib
 {
-    public class DataService : ISprint5Task7V0
+    public class DataService : ISprint5Task7V2
     {
         public string LoadDataAndSave(string path)
         {
-            string pathSaveFile = $@"{Directory.GetCurrentDirectory()}\OutputFileTask7.txt";
+            string pathSaveFile = Path.Combine(Path.GetTempPath(), "OutPutDataFileTask7V2.txt");
 
-            FileInfo fI = new FileInfo(pathSaveFile);
-            bool fEx = fI.Exists;
-
-            if (fEx)
+            if (File.Exists(pathSaveFile))
             {
                 File.Delete(pathSaveFile);
             }
 
-            string strLine = "";
             using (StreamReader reader = new StreamReader(path))
             {
-                string Line;
-                while ((Line = reader.ReadLine()) != null)
+                string line;
+                while ((line = reader.ReadLine()) != null)
                 {
-                    for (int i = 0; i < Line.Length; i++)
+                    string strLine = "";
+                    for (int i = 0; i < line.Length; i++)
                     {
-                        if ((Line[i] != '*') && (Line[i] != '/') && (Line[i] != '+') && (Line[i] != '-'))
+                        if (char.IsDigit(line[i]))
                         {
-                            strLine = strLine + Line[i];
+                            strLine += '#';
+                        }
+                        else
+                        {
+                            strLine += line[i];
                         }
                     }
-
                     File.AppendAllText(pathSaveFile, strLine + Environment.NewLine);
-                    strLine = "";
                 }
             }
 

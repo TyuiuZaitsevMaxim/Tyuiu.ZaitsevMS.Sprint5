@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using ZaitsevMS.Tyuiu.Sprint5.Task2.V0.Lib;
+using ZaitsevMS.Tyuiu.Sprint5.Task2.V5.Lib;
 
-namespace ZaitsevMS.Tyuiu.Sprint5.Task2.V0
+namespace ZaitsevMS.Tyuiu.Sprint5.Task2.V5
 {
     internal class Program
     {
@@ -20,22 +20,37 @@ namespace ZaitsevMS.Tyuiu.Sprint5.Task2.V0
             Console.WriteLine("* Спринт #5                                                               *");
             Console.WriteLine("* Тема: Класс File. Запись данных в текстовый файл                        *");
             Console.WriteLine("* Задание #2                                                              *");
-            Console.WriteLine("* Вариант #0                                                              *");
+            Console.WriteLine("* Вариант #5                                                              *");
             Console.WriteLine("* Выполнил: Зайцев Максим Сергеевич | ИБКСб-25-1                          *");
+            Console.WriteLine("***************************************************************************");
+            Console.WriteLine("* УСЛОВИЕ:                                                                *");
+            Console.WriteLine("* Дан двумерный целочисленный массив 3 на 3, заполненный значениями с     *");
+            Console.WriteLine("* клавиатуры. Заменить нечетные элементы массива на 0. Результат          *");
+            Console.WriteLine("* сохранить в файл OutPutFileTask2.csv и вывести на консоль.              *");
+            Console.WriteLine("*                                                                         *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
 
-            int[,] mtrx = new int[3, 3] { { 0, 1, 0 }, { 10, 10, 1 }, { 0, 1, 1 } };
-            int rows = mtrx.GetUpperBound(0) + 1;
-            int columns = mtrx.Length / rows;
+            int rows = 3;
+            int columns = 3;
+            int[,] mtrx = new int[rows, columns];
 
-            Console.WriteLine("Массив:");
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    Console.WriteLine($"{mtrx[i, j]} \t");
+                    Console.Write($"Введите [{i},{j}] элемент массива: ");
+                    mtrx[i, j] = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+
+            Console.WriteLine("\nИсходный массив:");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write($"{mtrx[i, j]}\t");
                 }
                 Console.WriteLine();
             }
@@ -44,8 +59,16 @@ namespace ZaitsevMS.Tyuiu.Sprint5.Task2.V0
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
 
-            string res = ds.SaveToFileTextData(mtrx);
-            Console.WriteLine("Файл: " + res);
+            string path = ds.SaveToFileTextData(mtrx);
+
+            Console.WriteLine("\nИзмененный массив:");
+            string[] lines = File.ReadAllLines(path);
+            foreach (string line in lines)
+            {
+                Console.WriteLine(line);
+            }
+
+            Console.WriteLine("\nФайл: " + path);
             Console.WriteLine("Создан!");
             Console.ReadLine();
         }

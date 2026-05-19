@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.IO;
 using tyuiu.cources.programming.interfaces.Sprint5;
 
-namespace ZaitsevMS.Tyuiu.Sprint5.Task6.V0.Lib
+namespace ZaitsevMS.Tyuiu.Sprint5.Task6.V1.Lib
 {
-    public class DataService : ISprint5Task6V0
+    public class DataService : ISprint5Task6V1
     {
         public int LoadFromDataFile(string path)
         {
@@ -18,9 +18,9 @@ namespace ZaitsevMS.Tyuiu.Sprint5.Task6.V0.Lib
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    for (int i = 0; i < line.Length; i++)
+                    foreach (char c in line)
                     {
-                        if (line[i] == '*')
+                        if (char.IsDigit(c))
                         {
                             count++;
                         }

@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
-using ZaitsevMS.Tyuiu.Sprint5.Task1.V0.Lib;
+using ZaitsevMS.Tyuiu.Sprint5.Task1.V4.Lib;
 
-namespace ZaitsevMS.Tyuiu.Sprint5.Task1.V0.Test
+namespace ZaitsevMS.Tyuiu.Sprint5.Task1.V4.Test
 {
     [TestClass]
     public class DataServiceTest
@@ -11,10 +11,13 @@ namespace ZaitsevMS.Tyuiu.Sprint5.Task1.V0.Test
         [TestMethod]
         public void CheckedExistsFile()
         {
-            string path = @"C:\Users\macjim\source\repos\Tyuiu.ZaitsevMS.Sprint5\ZaitsevMS.Tyuiu.Sprint5.Task1.V0\bin\Debug\OutputFileTask1.txt";
+            DataService ds = new DataService();
 
-            FileInfo fI = new FileInfo(path);
-            bool fEx = fI.Exists;
+            ds.SaveToFileTextData(-5, 5);
+
+            string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask1.txt");
+
+            bool fEx = File.Exists(path);
 
             bool wait = true;
             Assert.AreEqual(wait, fEx);

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using ZaitsevMS.Tyuiu.Sprint5.Task5.V0.Lib;
+using ZaitsevMS.Tyuiu.Sprint5.Task5.V17.Lib;
 
-namespace ZaitsevMS.Tyuiu.Sprint5.Task5.V0
+namespace ZaitsevMS.Tyuiu.Sprint5.Task5.V17
 {
     internal class Program
     {
@@ -20,14 +20,18 @@ namespace ZaitsevMS.Tyuiu.Sprint5.Task5.V0
             Console.WriteLine("* Спринт #5                                                               *");
             Console.WriteLine("* Тема: Чтение набора данных из текстового файла                          *");
             Console.WriteLine("* Задание #5                                                              *");
-            Console.WriteLine("* Вариант #0                                                              *");
+            Console.WriteLine("* Вариант #17                                                             *");
             Console.WriteLine("* Выполнил: Зайцев Максим Сергеевич | ИБКСб-25-1                          *");
+            Console.WriteLine("***************************************************************************");
+            Console.WriteLine("* УСЛОВИЕ:                                                                *");
+            Console.WriteLine("* Дан файл с набором значений. Найти сумму всех простых целых чисел       *");
+            Console.WriteLine("* в файле. Полученный результат вывести на консоль.                       *");
+            Console.WriteLine("*                                                                         *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
 
-            string path = @"C:\Users\macjim\source\repos\Tyuiu.ZaitsevMS.Sprint5\ZaitsevMS.Tyuiu.Sprint5.Task5.V0\bin\Debug\InputFileTask5.txt";
-
+            string path = Path.Combine(Path.GetTempPath(), "InPutDataFileTask5V17.txt");
             Console.WriteLine("Данные находятся в файле: " + path);
 
             Console.WriteLine("***************************************************************************");
@@ -35,7 +39,7 @@ namespace ZaitsevMS.Tyuiu.Sprint5.Task5.V0
             Console.WriteLine("***************************************************************************");
 
             double res = ds.LoadFromDataFile(path);
-            Console.WriteLine("Сумма элементов файла = " + res);
+            Console.WriteLine("Сумма простых целых чисел = " + res);
             Console.ReadLine();
         }
     }
