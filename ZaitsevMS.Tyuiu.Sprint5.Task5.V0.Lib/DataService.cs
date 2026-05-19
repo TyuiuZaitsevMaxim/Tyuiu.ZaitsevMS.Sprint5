@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using tyuiu.cources.programming.interfaces.Sprint5;
+using tyuiu.cources.programming.interfaces.Sprint5; 
 
 namespace ZaitsevMS.Tyuiu.Sprint5.Task5.V17.Lib
 {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using ZaitsevMS.Tyuiu.Sprint5.Task5.V17.Lib;
 
 namespace ZaitsevMS.Tyuiu.Sprint5.Task5.V17
-{
+{ 
     internal class Program
     {
         static void Main(string[] args)
